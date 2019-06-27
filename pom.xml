@@ -4,7 +4,7 @@
 
 	<groupId>com.olssonjonas.test</groupId>
 	<artifactId>my-pet-clinic</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>pom</packaging>
 	<name>my-pet-clinic</name>
 	<description>Pet Clinic</description>
@@ -37,7 +37,8 @@
 	
 	<scm>
 		<developerConnection>scm:git:git@github.com:Wedsa95/my-pet-clinic.git</developerConnection>
-  	</scm>
+  	  <tag>0.0.1-SNAPSHOT</tag>
+  </scm>
 
 	<modules>
 		<module>pet-clinic-data</module>
