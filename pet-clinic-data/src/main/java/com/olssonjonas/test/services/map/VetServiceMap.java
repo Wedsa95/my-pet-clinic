@@ -25,11 +25,6 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements Crud
 		return super.findById(id);
 	}
 
-	@Override
-	public Vet save(Long id, Vet object) {
-		// TODO Auto-generated method stub
-		return super.save(id, object);
-	}
 
 	@Override
 	public void deleteById(Long id) {
