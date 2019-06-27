@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.olssonjonas.test</groupId>
 	<artifactId>my-pet-clinic</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>my-pet-clinic</name>
 	<description>Pet Clinic</description>
@@ -40,8 +40,8 @@
 	
 	<scm>
 		<developerConnection>scm:git:git@github.com:Wedsa95/my-pet-clinic.git</developerConnection>
-	  <tag>my-pet-clinic-0.0.1</tag>
-  </scm>
+	  	<tag>my-pet-clinic-0.0.1</tag>
+  	</scm>
 
 	<modules>
 		<module>pet-clinic-data</module>
