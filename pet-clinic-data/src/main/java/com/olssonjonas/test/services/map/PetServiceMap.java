@@ -2,15 +2,18 @@ package com.olssonjonas.test.services.map;
 
 import java.util.Set;
 
-import com.olssonjonas.test.model.Pet;
-import com.olssonjonas.test.services.CrudService;
+import org.springframework.stereotype.Service;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long>{
+import com.olssonjonas.test.model.Pet;
+import com.olssonjonas.test.services.PetService;
+
+@Service
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService{
 
 	@Override
 	public Pet save(Pet object) {
 		// TODO Auto-generated method stub
-		return super.save(object.getId(), object);
+		return super.save(object);
 	}
 
 	@Override

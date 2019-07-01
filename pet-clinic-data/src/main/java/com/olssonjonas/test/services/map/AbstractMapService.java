@@ -1,13 +1,18 @@
 package com.olssonjonas.test.services.map;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Set;
 
-public abstract class AbstractMapService<T, ID> {
+import com.olssonjonas.test.model.BaseEntity;
 
-	protected Map<ID, T> map = new HashMap<>();
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+
+	protected Map<Long, T> map = new HashMap<>();
 	
 	Set<T> findAll(){
 		return new HashSet<>(map.values());
@@ -17,8 +22,15 @@ public abstract class AbstractMapService<T, ID> {
 		return map.get(id);
 	}
 	
-	T save(ID id,T object) {
-		map.put(id, object);
+	T save(T object) {
+		if(object != null) {
+			if(object.getId() == null) {
+				object.setId(getNextId());
+			}
+			map.put(object.getId(), object);
+		}else {
+			throw new RuntimeException("OBJECT CAN NOT BE NULL");
+		}
 		return object;
 	}
 	
@@ -27,5 +39,16 @@ public abstract class AbstractMapService<T, ID> {
 	}
 	void delete(T object) {
 		map.entrySet().removeIf(entry -> entry.getValue().equals(object));
+	}
+	
+	private Long getNextId() {
+//		Long nextId = null;
+//		try {
+//			nextId = Collections.max(map.keySet()) + 1;
+//		}catch (NoSuchElementException e) {
+//			nextId = 1L;
+//		}
+//		return nextId;
+		return map.keySet().stream().anyMatch(Objects::nonNull) ? Collections.max(map.keySet()) + 1L : 1L;
 	}
 }

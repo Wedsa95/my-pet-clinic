@@ -2,10 +2,13 @@ package com.olssonjonas.test.services.map;
 
 import java.util.Set;
 
-import com.olssonjonas.test.model.Owner;
-import com.olssonjonas.test.services.CrudService;
+import org.springframework.stereotype.Service;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long>{
+import com.olssonjonas.test.model.Owner;
+import com.olssonjonas.test.services.OwnerService;
+
+@Service
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService{
 
 	@Override
 	public Set<Owner> findAll() {
@@ -22,7 +25,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 	@Override
 	public Owner save(Owner object) {
 		// TODO Auto-generated method stub
-		return super.save(object.getId(), object);
+		return super.save(object);
 	}
 
 	@Override
@@ -36,6 +39,12 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 	public void delete(Owner object) {
 		// TODO Auto-generated method stub
 		super.delete(object);
+	}
+
+	@Override
+	public Owner findByLastName(String lastName) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

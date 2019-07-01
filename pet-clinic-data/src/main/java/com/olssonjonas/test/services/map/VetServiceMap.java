@@ -2,15 +2,18 @@ package com.olssonjonas.test.services.map;
 
 import java.util.Set;
 
-import com.olssonjonas.test.model.Vet;
-import com.olssonjonas.test.services.CrudService;
+import org.springframework.stereotype.Service;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long>{
+import com.olssonjonas.test.model.Vet;
+import com.olssonjonas.test.services.VetService;
+
+@Service
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService{
 
 	@Override
 	public Vet save(Vet object) {
 		// TODO Auto-generated method stub
-		return super.save(object.getId(), object);
+		return super.save(object);
 	}
 
 	@Override
